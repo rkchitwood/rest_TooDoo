@@ -1,7 +1,7 @@
 import db from "../db";
 import { NotFoundError } from "../expressError";
 import sqlForPartialUpdate from "../helpers/sql";
-import { DataToUpdateInterface } from "../interfaces/SqlInterface";
+import { TodoUpdateInterface } from "../interfaces/TodoInterface";
 import { TodoInterface } from "../interfaces/TodoInterface";
 
 /** SQL/TS abstraction functions for todos.
@@ -131,7 +131,7 @@ class Todo {
      * Allows for partial update of possible data:
      * { name, categoryId, completeDate } => { id, name, userId, categoryId, completeDate }
     */
-    static async update(id: number, data: DataToUpdateInterface): Promise<TodoInterface> {
+    static async update(id: number, data: TodoUpdateInterface): Promise<TodoInterface> {
         const { sqlSetCols, values } = sqlForPartialUpdate(
             data,
             {

@@ -24,18 +24,31 @@ async function commonBeforeAll() {
     // increment sql serial primary number to avoid dupes
     await db.query(`SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));`);
 
-    // insert test todos
+    // insert open test todos
     await db.query(
-        `INSERT INTO todos (name, 
+        `INSERT INTO todos (id,
+                            name, 
                             user_id, 
-                            category_id,
-                            id)
-         VALUES ($1, $2, $3),
-         VALUES ($4, $5, $6)`,
+                            category_id,)
+         VALUES ($1, $2, $3, $4),
+         VALUES ($5, $6, $7, $8)`,
          [
-            "todo1", 1, 3,
-            "todo2", 2, 4
+            1, "todo1", 1, 3,
+            2, "todo2", 2, 4
          ]
+    );
+
+    // insert completed test todo
+    await db.query(
+        `INSERT INTO todos (id, 
+                            name, 
+                            user_id, 
+                            category_id, 
+                            complete_date)
+         VALUES ($1, $2, $3, $4, $5)`,
+        [
+            3, "done_todo", 1, 1, "2024-09-25 09:00:00-05"
+        ]
     );
 
     // increment sql serial primary number to avoid dupes

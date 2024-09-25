@@ -1,4 +1,4 @@
-# Personal Project Project: toodoo REST API
+# Personal Project: toodoo REST API
 
 ## Description:
 
@@ -23,11 +23,12 @@
 
     - This project can be ran locally by the following commands
     ```
-    $ git clone https://github.com/rkchitwood/toodoo.git
+    $ git clone https://github.com/rkchitwood/rest_TooDoo.git
     $ npm install
     $ psql -f toodoo.sql
     # respond to prompts by hitting ENTER
-    $ npm run dev
+    $ npm run build
+    $ npm start
     ```
 
 - **Contributors:**

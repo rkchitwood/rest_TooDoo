@@ -13,11 +13,11 @@ describe("sqlForPartialUpdate", function () {
 
     test("works: 2 items", function () {
         const result = sqlForPartialUpdate(
-            { shape: "square", isCool: "false" },
+            { name: "square", id: 3 },
             { isCool: "is_cool" });
         expect(result).toEqual({
-            sqlSetCols: '"shape"=$1, "is_cool"=$2',
-            values: ["square", "false"],
+            sqlSetCols: '"name"=$1, "id"=$2',
+            values: ["square", 3],
         });
     });
 });

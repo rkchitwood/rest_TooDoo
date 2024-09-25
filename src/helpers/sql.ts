@@ -1,5 +1,7 @@
 import { BadRequestError } from "../expressError";
-import { TsToSqlInterface, DataToUpdateInterface } from "../interfaces/SqlInterface";
+import { TsToSqlInterface } from "../interfaces/SqlInterface";
+import { UserInterface } from "../interfaces/UserInterface";
+import { TodoInterface } from "../interfaces/TodoInterface";
 
 /**
  * Helper function for making selective update sql queries.
@@ -19,7 +21,7 @@ import { TsToSqlInterface, DataToUpdateInterface } from "../interfaces/SqlInterf
  *      }
  */
 
-function sqlForPartialUpdate(dataToUpdate: DataToUpdateInterface, tsToSql: TsToSqlInterface) {
+function sqlForPartialUpdate(dataToUpdate: Partial<UserInterface> | Partial<TodoInterface>, tsToSql: TsToSqlInterface) {
     const keys = Object.keys(dataToUpdate);
     if (keys.length === 0) throw new BadRequestError("no data");
     const columns = keys.map((columnName, idx) =>

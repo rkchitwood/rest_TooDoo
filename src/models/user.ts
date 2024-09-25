@@ -2,7 +2,6 @@ import db from "../db";
 import bcrypt from "bcrypt";
 import { BCRYPT_WORK_FACTOR } from "../config";
 import { NotFoundError, UnauthorizedError, BadRequestError } from "../expressError";
-import { DataToUpdateInterface } from "../interfaces/SqlInterface";
 import { UserInterface } from "../interfaces/UserInterface";
 import sqlForPartialUpdate from "../helpers/sql";
 
@@ -104,7 +103,7 @@ class User {
      * Callers of this function must be certain of proper
      * validation to avoid serious security risks.
     */
-    static async update(userId: number, data: DataToUpdateInterface) : Promise<UserInterface>{
+    static async update(userId: number, data: Partial<UserInterface>) : Promise<UserInterface>{
         if (data.password) {
             data.password = await bcrypt.hash(data.password, BCRYPT_WORK_FACTOR);
         }

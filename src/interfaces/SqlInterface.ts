@@ -1,12 +1,3 @@
-interface DataToUpdateInterface {
+export interface TsToSqlInterface {
     [key: string]: string;
-}
-
-interface TsToSqlInterface {
-    [key: string]: string;
-}
-
-export {
-    DataToUpdateInterface,
-    TsToSqlInterface
 }
