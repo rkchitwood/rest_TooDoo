@@ -89,7 +89,7 @@ class User {
                 WHERE u.id=$1 AND t.complete_date IS NOT NULL`,
             [id]
         );
-        user.score = scoreRes.rows[0];
+        user.score = +scoreRes.rows[0].count;
         return user;
     }
 

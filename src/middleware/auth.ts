@@ -59,7 +59,7 @@ async function ensureAuthor(req: Request, res: Response, next: NextFunction) {
 async function ensureCorrectUser(req: Request, res: Response, next: NextFunction) {
     try {
         const user = res.locals.user;
-        if(!user || user.id !== req.params.userId)  throw new UnauthorizedError();
+        if(!user || user.id !== +req.params.userId)  throw new UnauthorizedError();
         return next();
     } catch(err) {
         return next(err);

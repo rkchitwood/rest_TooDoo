@@ -29,9 +29,9 @@ async function commonBeforeAll() {
         `INSERT INTO todos (id,
                             name, 
                             user_id, 
-                            category_id,)
+                            category_id)
          VALUES ($1, $2, $3, $4),
-         VALUES ($5, $6, $7, $8)`,
+                ($5, $6, $7, $8)`,
          [
             1, "todo1", 1, 3,
             2, "todo2", 2, 4

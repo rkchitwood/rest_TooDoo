@@ -146,7 +146,7 @@ class Todo {
                           RETURNING id,
                                     name,
                                     user_id AS "userId",
-                                    category_id AS "categoryId"
+                                    category_id AS "categoryId",
                                     complete_date AS "completeDate"`;
         const result = await db.query(sqlQuery, [...values, id]);
         const todo = result.rows[0];

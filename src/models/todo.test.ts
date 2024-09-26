@@ -94,7 +94,7 @@ describe("getCompletedUserTodos", function() {
             name: "done_todo",
             userId: 1,
             categoryId: 1,
-            completeDate: "2024-09-25 09:00:00-05",
+            completeDate: new Date("2024-09-25T14:00:00.000Z"),
             userUsername: "user1",
             categoryName: "personal"
         });
@@ -123,7 +123,7 @@ describe("update", function() {
             name: "updated_todo",
             userId: 1,
             categoryId: 2,
-            completeDate: "2024-09-25 09:00:00-05"
+            completeDate: new Date("2024-09-25T14:00:00.000Z")
         });
     });
 

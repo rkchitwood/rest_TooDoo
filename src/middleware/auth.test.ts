@@ -144,7 +144,7 @@ describe("ensureCorrectUser", function () {
             locals: { user: { id: 1, username: "user1" } } 
         } as Partial<Response>;
         const next: NextFunction = function (err?: any) {
-            expect(err).toBeFalsy();
+            expect(err).toBeTruthy();
         };
         await ensureCorrectUser(req as Request, res as Response, next);
     });

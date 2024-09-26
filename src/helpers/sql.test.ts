@@ -6,7 +6,7 @@ describe("sqlForPartialUpdate", function () {
             { username: "testuser" },
             { username: "username", random: "random" });
         expect(result).toEqual({
-            sqlSetCols: '"email"=$1',
+            sqlSetCols: '"username"=$1',
             values: ["testuser"],
         });
     });

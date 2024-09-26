@@ -3,7 +3,7 @@ import createToken from "./tokens";
 import { SECRET_KEY } from "../config";
 
 describe("createToken", function () {
-    test("works: not pm", function() {
+    test("works", function() {
         const token = createToken({ id: 1, username: "testuser" });
         const payload = jwt.verify(token, SECRET_KEY);
         expect(payload).toEqual({
