@@ -9,7 +9,6 @@ import {
 } from "../models/_testCommon";
 import { BadRequestError, NotFoundError, UnauthorizedError } from "../expressError";
 
-// Setup and Cleanup for User/Author authorization as DB is queried
 beforeAll(commonBeforeAll);
 beforeEach(commonBeforeEach);
 afterEach(commonAfterEach);

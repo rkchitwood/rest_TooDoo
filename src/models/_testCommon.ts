@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import db from "../db";
 import { BCRYPT_WORK_FACTOR } from "../config";
+import createToken from "../helpers/tokens";
 
 async function commonBeforeAll() {
     // connect to DB
@@ -67,9 +68,12 @@ async function commonAfterAll() {
     await db.end();
 }
 
+const user1Token = createToken({ id: 1, username: "user1" })
+
 export {
     commonBeforeAll,
     commonBeforeEach,
     commonAfterEach,
-    commonAfterAll
+    commonAfterAll,
+    user1Token
 };

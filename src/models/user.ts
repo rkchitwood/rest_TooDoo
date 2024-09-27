@@ -53,7 +53,7 @@ class User {
              WHERE username=$1`,
             [username]
         );
-        if (dupe.rows[0]) throw new BadRequestError("duplicate email");
+        if (dupe.rows[0]) throw new BadRequestError("duplicate username");
 
         const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
         const result = await db.query(

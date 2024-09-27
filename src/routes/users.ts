@@ -51,7 +51,7 @@ router.patch("/:userId", ensureCorrectUser, async function(req, res, next) {
  * 
  * Authorization required: Correct user
 */
-router.delete("/userId", ensureCorrectUser, async function(req, res, next) {
+router.delete("/:userId", ensureCorrectUser, async function(req, res, next) {
     try {
         const { userId } = req.params;
         await User.remove(+userId);

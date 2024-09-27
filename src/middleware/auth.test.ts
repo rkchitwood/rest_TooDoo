@@ -18,7 +18,6 @@ import {
     commonAfterAll
 } from "../models/_testCommon";
 
-// Setup and Cleanup for User/Author authorization as DB is queried
 beforeAll(commonBeforeAll);
 beforeEach(commonBeforeEach);
 afterEach(commonAfterEach);

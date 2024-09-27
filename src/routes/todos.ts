@@ -10,6 +10,23 @@ import { BadRequestError } from "../expressError";
 
 const router = express.Router();
 
+/** GET / history => [ { todo }, ... ]
+ * Get all historical complete todos for a user where todo is:
+ *  { id, name, userId, categoryId, completeDate, userUsername, categoryName }
+ * 
+ * Authorization required: logged in user
+*/
+router.get("/history", ensureLoggedIn, async function(req, res, next) {
+    try {
+        console.log("IN /HISTORY ==============================================")
+        const { user } = res.locals;
+        const todos = await Todo.getCompletedUserTodos(user.id);
+        return res.json({ todos });
+    } catch(err) {
+        return next(err);
+    }
+});
+
 /** POST / { todo } => { todo }
  * 
  * todo should be { name, categoryId }
@@ -65,21 +82,7 @@ router.get("/:todoId", ensureAuthor, async function(req, res, next) {
     }
 });
 
-/** GET / history => [ { todo }, ... ]
- * Get all historical complete todos for a user where todo is:
- *  { id, name, userId, categoryId, completeDate, userUsername, categoryName }
- * 
- * Authorization required: logged in user
-*/
-router.get("/history", ensureLoggedIn, async function(req, res, next) {
-    try {
-        const { user } = res.locals;
-        const todos = await Todo.getCompletedUserTodos(user.id);
-        return res.json({ todos });
-    } catch(err) {
-        return next(err);
-    }
-});
+
 
 /** PATCH /[todoId] { dataToUpdate } => { updatedTodo } 
  * Update todo. Fields can include:
