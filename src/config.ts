@@ -19,7 +19,7 @@ console.log("toodoo Config:".green);
 console.log("SECRET_KEY:".yellow, SECRET_KEY);
 console.log("PORT:".yellow, PORT.toString());
 console.log("BCRYPT_WORK_FACTOR".yellow, BCRYPT_WORK_FACTOR);
-console.log("Database:".yellow, getDatabaseUri());
+console.log("Database REPLACE?:".yellow, getDatabaseUri().replace(/:[^:]+@/, ':***@')); // Redacts password
 console.log("---");
 
 export {
