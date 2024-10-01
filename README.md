@@ -22,7 +22,7 @@
 
 - **Usage:**
 
-    - This project via the following commands
+    - Use this project via the following commands
     ```
     $ git clone https://github.com/rkchitwood/rest_TooDoo.git
     $ cd rest_TooDoo
@@ -39,7 +39,7 @@
     # back to terminal:
     $ docker-compose up -d
     ```
-    - Or run locally:
+    - Or run locally with PGSQL:
     ```
     $ npm install
     $ psql -f toodoo.sql
